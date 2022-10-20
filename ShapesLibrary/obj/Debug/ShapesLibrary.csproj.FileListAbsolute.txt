@@ -1,0 +1,6 @@
+V:\Portfolio\School\C#\4143-Program5-ShapesInheritanceApp\ShapesLibrary\obj\Debug\ShapesLibrary.csproj.AssemblyReference.cache
+V:\Portfolio\School\C#\4143-Program5-ShapesInheritanceApp\ShapesLibrary\obj\Debug\ShapesLibrary.csproj.CoreCompileInputs.cache
+V:\Portfolio\School\C#\4143-Program5-ShapesInheritanceApp\ShapesLibrary\bin\Debug\ShapesLibrary.dll
+V:\Portfolio\School\C#\4143-Program5-ShapesInheritanceApp\ShapesLibrary\bin\Debug\ShapesLibrary.pdb
+V:\Portfolio\School\C#\4143-Program5-ShapesInheritanceApp\ShapesLibrary\obj\Debug\ShapesLibrary.dll
+V:\Portfolio\School\C#\4143-Program5-ShapesInheritanceApp\ShapesLibrary\obj\Debug\ShapesLibrary.pdb
