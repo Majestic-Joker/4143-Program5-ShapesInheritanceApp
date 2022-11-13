@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Name: Joshua Beaty
+ * Date: 10/20/2022
+ * Description: This app uses a shape library to build objects based on points given by the user. 
+ * Error handling, list working, inheritance/oop stuff are all part of the objectives for this app.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +21,10 @@ namespace ShapesInheritanceApp
 {
     public partial class ShapesInheritanceApp : Form
     {
+        //list of quads
         public List<Quadrilateral> QuadrilateralList = new List<Quadrilateral>();
 
+        //app constructor
         public ShapesInheritanceApp()
         {
             InitializeComponent();
@@ -26,6 +34,7 @@ namespace ShapesInheritanceApp
 
         }
 
+        //event launches when the dropdown menu item is changed. It resets points and image fields and toggles the appropriate point fields for the shape.
         private void shapePicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             ResetPointFields();
@@ -33,6 +42,7 @@ namespace ShapesInheritanceApp
             ToggleActiveInputs();
         }
 
+        //event launches on calc button click, resets the image section, and tries to create a shape before updating the ui and storing it in the list of quads
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
             Quadrilateral quad = null;
@@ -50,11 +60,13 @@ namespace ShapesInheritanceApp
             ResetPointFields();
         }
 
+        //method adds a header to the output dump
         private void SetOuputBoxHeader()
         {
             TxtBox_RunningTotal.Text = "_______________|__X1__|__Y1__|__X2__|__Y2__|__X3__|__Y3__|__X4__|__Y4__|__AREA__|__PERIMETER__|\n";
         }
 
+        //method selects the correct image for the quad and displays the point information 
         private void PopulateImageSection(Quadrilateral quad)
         {
             if (quad is Square)
@@ -79,6 +91,7 @@ namespace ShapesInheritanceApp
             Txt_Image4.Text = $"P4 = {temp.X},{temp.Y}";
         }
 
+        //method resets the user textbox fields
         private void ResetPointFields()
         {
             //Reset Point fields
@@ -92,6 +105,7 @@ namespace ShapesInheritanceApp
             P4_Y.Text = "";
         }
 
+        //method resets the image section items.
         private void ResetImageSection()
         {
             //Reset Image section
@@ -102,6 +116,7 @@ namespace ShapesInheritanceApp
             Img_Diagram.Image = null;
         }
 
+        //method enables the fields appropriate for the given shape.
         private void ToggleActiveInputs()
         {
             Btn_Calculate.Enabled = true;
@@ -137,6 +152,7 @@ namespace ShapesInheritanceApp
             }
         }
 
+        //method instantiates a quadrilateral from a list of points and returns the new quadrilateral
         private Quadrilateral CreateShape()
         {
             Quadrilateral returnable = null;
@@ -175,6 +191,7 @@ namespace ShapesInheritanceApp
             return returnable;
         }
 
+        //method attempts to validate any field that is enabled, returns false if unsuccessful.
         private bool ValidateFields()
         {
             bool succeed = true;
@@ -204,6 +221,7 @@ namespace ShapesInheritanceApp
             return succeed;
         }
 
+        //Method takes two text boxes and attempts to convert their text to ints. It catches and handles the errors with a message box to the user.
         private bool TryValidate(TextBox tbx, TextBox tby)
         {
             bool succeed = false;
@@ -231,6 +249,7 @@ namespace ShapesInheritanceApp
             return succeed;
         }
 
+        //Event is launched when count button is clicked, counts the number of each shape and puts it on the text items.
         private void Btn_Count_Click(object sender, EventArgs e)
         {
             int squares = 0;

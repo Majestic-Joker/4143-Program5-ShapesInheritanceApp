@@ -1,8 +1,14 @@
-﻿using System;
+﻿/* Name: Joshua Beaty
+ * Date: 10/20/2022
+ * Description: This is a basic library of shapes to practice OOP concepts. It is used for another program for the 4143 C# class.
+ */
+
+using System;
 using System.Collections.Generic;
 
 namespace ShapesLibrary
 {
+    //Interface adds properties to the functions to calculate things like height, width, perimeter, area, and a method to get distance
     public interface ICalculable
     {
         double Height { get; }
@@ -12,6 +18,8 @@ namespace ShapesLibrary
         double Distance(PolygonPoint p1, PolygonPoint p2);
     }
 
+    //Class to hold an x & y coordinate, I would normally never use this because a Point class already exists that holds an x and y.
+    //Furthermore, this functions pretty much the same to a standard KeyValuePair.
     public class PolygonPoint
     {
         public int X { get; set; }
@@ -30,6 +38,7 @@ namespace ShapesLibrary
         }
     }
 
+    //Abstract class that implements the calculable interface, not a pure abstract class because the Distance and GetPoint methods are useful to all derived classes.
     public abstract class Quadrilateral : ICalculable
     {
         protected PolygonPoint lowerLeft;
@@ -75,6 +84,7 @@ namespace ShapesLibrary
         }
     }
 
+    //Class to implement a trapezoid, the interface properties are overriden here to suit the Trapezoid's needs.
     public class Trapezoid : Quadrilateral
     {
         public override double Height => Math.Abs(lowerLeft.Y - upperLeft.Y);
@@ -93,6 +103,7 @@ namespace ShapesLibrary
         }
     }
 
+    //Class to implement Parallelogram, the interface properties are overriden here to suit the Parallelogram's needs 
     public class Parallelogram : Quadrilateral
     {
         public override double Height => Math.Abs(lowerLeft.Y - upperLeft.Y);
@@ -114,6 +125,7 @@ namespace ShapesLibrary
         }
     }
 
+    //Class to implement a Rectangle, since the properties work for the Rectangle, no need to mess with them.
     public class Rectangle : Parallelogram
     {
         public Rectangle(List<PolygonPoint> points) : base(points)
@@ -127,6 +139,7 @@ namespace ShapesLibrary
         }
     }
 
+    //Class to implement a Square, since the properties work for the Square, no need to mess with them.
     public class Square : Rectangle
     {
         public Square(List<PolygonPoint> points) : base(points)
